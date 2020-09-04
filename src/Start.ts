@@ -17,12 +17,13 @@ app.use(bodyParser.raw())
 app.post('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
     let userID = req.body.userID;
     let profile = req.body.profile;
+    let actProfile = req.body.profile2;
 
     console.info(req.body.userID);
     res.render('summary', { title: 'ok', summary: { userID: userID } });
 
     if (userID && profile) {
-        fs.writeFileSync('./UserProfiles/' + userID + '.txt', profile);
+        fs.writeFileSync('./UserProfiles/' + userID + '.txt', profile + '\n' + actProfile);
     }
 });
 // catch 404 and forward to error handler
