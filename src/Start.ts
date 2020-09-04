@@ -9,7 +9,9 @@ app.set('view engine', 'pug');
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.raw())
 
 app.get('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
     console.info(req.body.userID);
