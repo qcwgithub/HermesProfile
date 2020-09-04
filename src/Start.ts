@@ -30,6 +30,6 @@ app.use(function(err: any, req: any, res: any, next: any) {
 
 let http = require('http').Server(app);
 
-http.listen(9999, () => {
-    console.info('listening on *: ' + 9999);
+http.listen(8999, () => {
+    console.info('listening on *: ' + 8999);
 });
