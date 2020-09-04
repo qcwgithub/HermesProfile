@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
     console.info(req.body.userID);
-    res.render('default', { text: 'ok' });
+    res.render('summary', { title: 'ok', summary: req.body.userID });
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
