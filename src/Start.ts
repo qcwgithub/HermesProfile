@@ -9,7 +9,7 @@ let app = express();
 //app.use('/users', usersRouter);
 app.use(bodyParser.json());
 
-app.post('/', (req, res, next) => {
+app.get('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
     console.info(req.body.userID);
 });
 // catch 404 and forward to error handler
