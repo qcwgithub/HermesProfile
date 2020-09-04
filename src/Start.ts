@@ -5,13 +5,13 @@ const bodyParser = require('body-parser');
 
 let app = express();
 
-app.get('/', (req, res, next) => {
-    console.info(req.body.userID);
-});
-
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use(bodyParser.json());
+
+app.post('/', (req, res, next) => {
+    console.info(req.body.userID);
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createHttpError(404));
