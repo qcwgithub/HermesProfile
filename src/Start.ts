@@ -3,7 +3,7 @@ import createHttpError = require("http-errors");
 var path = require('path');
 const bodyParser = require('body-parser');
 
-let app = this.webData.app = express();
+let app = express();
 
 app.get('/', (req, res, next) => {
     console.info(req.body.userID);
@@ -30,7 +30,6 @@ app.use(function(err: any, req: any, res: any, next: any) {
 
 let http = require('http').Server(app);
 
-let port = this.baseScript.myLoc().port;
-http.listen(port, () => {
-    this.logger.info('listening on *: ' + port);
+http.listen(9999, () => {
+    console.info('listening on *: ' + 9999);
 });
