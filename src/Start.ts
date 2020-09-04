@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw())
 
-app.get('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
-    console.info(req.body.userID);
-    res.render('summary', { title: 'ok', summary: { userID: req.body.userID } });
+app.post('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
+    console.info(req.body);
+    res.render('summary', { title: 'ok', summary: { userID: req.body } });
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
