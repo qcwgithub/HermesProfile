@@ -1,3 +1,4 @@
+import * as fs from "fs";
 import * as express from "express";
 import createHttpError = require("http-errors");
 var path = require('path');
@@ -14,8 +15,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw())
 
 app.post('/', (req, res, next) => { console.info('!!!!!!!!!!!!!');
-    console.info(req.body);
-    res.render('summary', { title: 'ok', summary: { userID: req.body } });
+    let userID = req.body.userID;
+    let profile = req.body.profile;
+
+    console.info(req.body.userID);
+    res.render('summary', { title: 'ok', summary: { userID: userID } });
+
+    if (userID && profile) {
+        fs.writeFileSync('./UserProfiles/' + userID + '.txt', profile);
+    }
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
